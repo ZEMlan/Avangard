@@ -6,6 +6,7 @@ TagManager:
   tags:
   - onGrid
   - canMove
+  - Console
   layers:
   - Default
   - TransparentFX

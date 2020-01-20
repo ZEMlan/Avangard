@@ -9,8 +9,8 @@ public class ConsoleScript : MonoBehaviour
     private SpriteRenderer screenRed, screenGreen;
     private Button butNext, butOK, butExitR, butExitG;
     private InputSimulator inputSimulator = new InputSimulator();
-    private Canvas canvas;
     private GameObject hero;
+    private GameObject canvas;
     private int attempts = 0;
     public int score = 14;
     //всё далее должно храниться в xml
@@ -167,8 +167,9 @@ if __name__ == '__main__':
     void InitAll()
     {
         hero = GameObject.FindGameObjectWithTag("Player");
-        canvas = GetComponent<Canvas>();
-        canvas.gameObject.SetActive(false);
+        canvas = ConsoleHandleScript.consoleCanvas;
+        canvas.SetActive(false);
+        ConsoleHandleScript.isConsoleActive = false;
         input = GetComponentInChildren<InputField>();
         SpriteRenderer[] screens = GetComponentsInChildren<SpriteRenderer>();
         foreach(var scr in screens)
@@ -234,7 +235,8 @@ if __name__ == '__main__':
 
     public void ExitConsole()
     {
-        canvas.gameObject.SetActive(false);
+        canvas.SetActive(false);
+        ConsoleHandleScript.isConsoleActive = false;
         Input.ResetInputAxes();
         hero.SetActive(true);
     }
