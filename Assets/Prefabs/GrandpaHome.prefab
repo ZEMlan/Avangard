@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 6050746082612983638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.01, y: -27.17, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,8 +110,8 @@ PolygonCollider2D:
     m_Paths:
     - - {x: 0.67578816, y: -0.57042885}
       - {x: 0.50799406, y: -0.5654732}
-      - {x: 0.5131152, y: 0.10074272}
-      - {x: -0.810215, y: 0.10216866}
+      - {x: 0.50516313, y: -0.14576244}
+      - {x: -0.81816685, y: -0.1602397}
       - {x: -0.8126101, y: -0.7618473}
       - {x: 0.5077104, y: -0.76471215}
       - {x: 0.5062885, y: -0.68128854}
@@ -128,4 +128,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09255e9b5f12e784ea9cea3b54443c9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: -3.12
+  offset: -2
