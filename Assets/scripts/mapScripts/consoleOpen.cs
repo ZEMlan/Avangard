@@ -8,7 +8,7 @@ public class consoleOpen : MonoBehaviour
 
     private bool can_open;
     private GameObject npcMark;
-    private GameObject canvas;
+    private Canvas canvas;
 
     void Start()
     {
@@ -25,8 +25,7 @@ public class consoleOpen : MonoBehaviour
 
     void OpenConsole()
     {
-        canvas.SetActive(true);
-        ConsoleHandleScript.isConsoleActive = true;
+        canvas.gameObject.SetActive(true);
     }
 
     public void OnTriggerEnter2D(Collider2D collision)

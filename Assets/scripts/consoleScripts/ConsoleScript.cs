@@ -10,7 +10,7 @@ public class ConsoleScript : MonoBehaviour
     private Button butNext, butOK, butExitR, butExitG;
     private InputSimulator inputSimulator = new InputSimulator();
     private GameObject hero;
-    private GameObject canvas;
+    private Canvas canvas;
     private int attempts = 0;
     public int score = 14;
     //всё далее должно храниться в xml
@@ -168,36 +168,13 @@ if __name__ == '__main__':
     {
         hero = GameObject.FindGameObjectWithTag("Player");
         canvas = ConsoleHandleScript.consoleCanvas;
-        canvas.SetActive(false);
-        ConsoleHandleScript.isConsoleActive = false;
-        input = GetComponentInChildren<InputField>();
-        SpriteRenderer[] screens = GetComponentsInChildren<SpriteRenderer>();
-        foreach(var scr in screens)
-        {
-            if (scr.gameObject.name == "ScreenRed")
-                screenRed = scr;
-            else
-                screenGreen = scr;
-        }
-        screenGreen.enabled = false;
-        Button[] buttons = GetComponentsInChildren<Button>();
-        foreach(var b in buttons)
-        {
-            if (b.gameObject.name == "ButNext")
-                butNext = b;
-            if (b.gameObject.name == "ButExitR")
-                butExitR = b;
-            if (b.gameObject.name == "ButOK")
-            {
-                butOK = b;
-                butOK.gameObject.SetActive(false);
-            }
-            if (b.gameObject.name == "ButExitG")
-            {
-                butExitG = b;
-                butExitG.gameObject.SetActive(false);
-            }
-        }
+        input = ConsoleHandleScript.input;
+        screenGreen = ConsoleHandleScript.screenGreen;
+        screenRed = ConsoleHandleScript.screenRed;
+        butExitG = ConsoleHandleScript.butExitG;
+        butExitR = ConsoleHandleScript.butExitR;
+        butNext = ConsoleHandleScript.butNext;
+        butOK = ConsoleHandleScript.butOK;
     }
 
     public void CalculateScore()
@@ -235,8 +212,7 @@ if __name__ == '__main__':
 
     public void ExitConsole()
     {
-        canvas.SetActive(false);
-        ConsoleHandleScript.isConsoleActive = false;
+        canvas.gameObject.SetActive(false);
         Input.ResetInputAxes();
         hero.SetActive(true);
     }
