@@ -5,7 +5,6 @@ using UnityEngine;
 public class heromove : MonoBehaviour{
     public Sprite[] heroes = new Sprite[3];//первый вперёд, второй назад, третий влево-вправо
     public float speed = 10f;//скорость передвижения, можно менять прямо в самой юнити
-    public float offset; //оффсет для z индекса 
     public static bool is_moving = true; //переменная, указывающая движется ли тело, доступна из других скриптов
     bool facing_right = true;//куда по факту смотрим
     Rigidbody2D rig;//Rigidbody нашего героя
@@ -24,7 +23,7 @@ public class heromove : MonoBehaviour{
             move_h = Input.GetAxis("Horizontal"); //скорость по горизонтальной оси
             move_v = Input.GetAxis("Vertical"); //скорость по вертикальной оси
             rig.velocity = new Vector2(move_h * speed, move_v * speed); //задаём Rigidbody скорость вектором по осям OX и OY
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y + offset);
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
             if (move_v > 0) {
                 sprite.sprite = heroes[1];
             }

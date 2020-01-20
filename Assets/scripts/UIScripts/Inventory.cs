@@ -4,43 +4,33 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 //каждый раз когда я не буду понимать что здесь происходит я буду добавлять сюда 1
-//текущий счётчик заёбанности: 4
+//текущий счётчик заёбанности: 7
 public class Inventory : MonoBehaviour
 {
     public Database data;
-
     public List<ItemInventory> items = new List<ItemInventory>();
-
     public GameObject gameObjShow;
-
     public GameObject InventoryMainObject;
     public int maxCount;
-
     public Camera cam;
     public EventSystem es;
-    int trig;
     public int currentID;
     public ItemInventory currentItem;
     public RectTransform movingObject;
     public Vector3 offset;
     //public GameObject backGrownd;
+
     public void Start() {
         if (items.Count == 0) {
             AddGraphics();
         }
-        for (int i = 0; i < maxCount; i++) { //тест, рандомное заполнение
-            AddItem(i, data.items[0], 1);
-        }
+        ClearInventory();
         UpdateInventory();
     }
 
     public void Update() {
         if (currentID != -1) {
             MoveObject();
-        }
-        trig = GameObject.Find("helper").GetComponent<mouse_follow>().flag;
-        if (trig == 2 && Input.GetMouseButtonDown(1)) {
-            SearchForSameItem(data.items[trig], 1);
         }
         /*for (int i = 0; i < maxCount; i++) {
             if (items[i].id == 0) {
@@ -50,7 +40,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }*/
-        UpdateInventory();
+        //UpdateInventory();
         /*if (Input.GetKeyDown(KeyCode.I)) {
             backGrownd.SetActive(!backGrownd.activeSelf);
             if (backGrownd.activeSelf) {
@@ -66,7 +56,7 @@ public class Inventory : MonoBehaviour
                     items[i].count += count;
                     if (items[i].count > item.stuck) {
                         count = items[i].count - item.stuck;
-                        items[i].count = item.stuck / 2;
+                        items[i].count = item.stuck;
                     }
                     else {
                         count = 0;
@@ -81,21 +71,22 @@ public class Inventory : MonoBehaviour
                 if (items[i].id == 0) {
                     AddItem(i, item, count);
                     i = maxCount;
+                    count = 0;
                 }
             }
         }
     }
 
-    public void AddItem(int id, Item item, int count) {
-        items[id].id = item.id;
-        items[id].count = count;
-        items[id].itemGameObj.GetComponent<Image>().sprite = item.img;
+    public void AddItem(int cell, Item item, int count) {
+        items[cell].id = item.id;
+        items[cell].count = count;
+        items[cell].itemGameObj.GetComponent<Image>().sprite = item.img;
 
         if (count > 1 && item.id != 0) {
-            items[id].itemGameObj.GetComponentInChildren<Text>().text = count.ToString();
+            items[cell].itemGameObj.GetComponentInChildren<Text>().text = count.ToString();
         }
         else {
-            items[id].itemGameObj.GetComponentInChildren<Text>().text = "";
+            items[cell].itemGameObj.GetComponentInChildren<Text>().text = "";
         }
     }
 
@@ -193,6 +184,11 @@ public class Inventory : MonoBehaviour
         };
 
         return New;
+    }
+    public void ClearInventory() {
+        for (int i = 0; i < maxCount; i++) {
+            AddItem(i, data.items[0], 1);
+        }
     }
 }
 
