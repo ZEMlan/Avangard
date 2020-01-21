@@ -32,7 +32,7 @@ public class consoleOpen : MonoBehaviour
     {
         if (collision.tag == "Player" && !questObjScr.is_quest)
         {
-            npcMark = Instantiate(NpcMark);
+            npcMark = Instantiate(NpcMark) as GameObject;
             npcMark.transform.position = transform.position;
             npcMark.transform.position += new Vector3(0, 1.25f, 0);
             can_open = true;
