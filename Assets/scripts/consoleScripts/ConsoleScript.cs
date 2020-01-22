@@ -166,7 +166,7 @@ if __name__ == '__main__':
 
     void InitAll()
     {
-        hero = GameObject.FindGameObjectWithTag("Player");
+        hero = GameObject.Find("hero");
         canvas = ConsoleHandleScript.consoleCanvas;
         input = ConsoleHandleScript.input;
         screenGreen = ConsoleHandleScript.screenGreen;
@@ -179,7 +179,7 @@ if __name__ == '__main__':
 
     public void CalculateScore()
     {
-        attempts += 1;
+        heroCounters.attempts += 1;
         string[] playerAnswer = Clean(input.text.Split('\n'));
         answer = Clean(answer);
         for (int i = 0; i < playerAnswer.Length; i++)
@@ -195,7 +195,7 @@ if __name__ == '__main__':
         }
         if (score < 0)
             score = 0;
-        print(score);
+        heroCounters.score += score;
         ExitConsole();
     }
 
