@@ -222,6 +222,7 @@ if __name__ == '__main__':
         {
             if (!i.Equals(""))
                 res += i + "\n";
+            i.Remove(' ');
         }
         return res.Split('\n');
     }
