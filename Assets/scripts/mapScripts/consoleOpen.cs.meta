@@ -3,7 +3,9 @@ guid: af16b76386c0a9a46a7b7f59fcbc50af
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - NpcMark: {fileID: 3774863456873376182, guid: 8f25deed4ea37de4dbb840f60440ab54,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

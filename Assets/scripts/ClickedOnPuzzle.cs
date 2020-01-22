@@ -160,7 +160,7 @@ public class ClickedOnPuzzle : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !questObjScr.is_quest && heroCounters.questCounter >= MinQuestCount && heroCounters.questCounter <= MaxQuestCount)
+        if (collision.tag == "Player" && !questObjScr.is_quest)
         {
             npcMark = Instantiate(NpcMark);
             npcMark.transform.position = transform.position;

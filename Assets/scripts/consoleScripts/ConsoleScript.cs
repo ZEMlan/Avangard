@@ -13,11 +13,13 @@ public class ConsoleScript : MonoBehaviour
     private Canvas canvas;
     private int attempts = 0;
     public int score = 14;
+    private int maxScore;
+    public robotStatistics stat;
 
     private int bestScore;
     //всё далее должно храниться в xml
     private string error = "\n\nFatal error code DI35: encoding error.\nCannot read inner code files: unknown symbol ‘?’.";
-    private string codeTask = @"# Python 3.7
+    private string codeTask/* = @"# Python 3.7
 global board
 
 
@@ -79,8 +81,8 @@ def main() :
 
 if __name__ == '__main__':
     board = list(range(1, 10))
-    ????()";
-    private string codeAns = @"# Python 3.7
+    ????()"*/;
+    private string codeAns /*= @"# Python 3.7
 global board
 
 
@@ -142,7 +144,7 @@ def main() :
 
 if __name__ == '__main__':
     board = list(range(1, 10))
-    main()";
+    main()"*/;
     private string[] answer;
 
     void Start()
@@ -181,7 +183,7 @@ if __name__ == '__main__':
 
     public void CalculateScore()
     {
-        int maxScore = score;
+        maxScore = score;
         heroCounters.attempts += 1;
         string[] playerAnswer = Clean(input.text.Split('\n'));
         answer = Clean(answer);
@@ -222,18 +224,18 @@ if __name__ == '__main__':
         {
             if (!i.Equals(""))
                 res += i + "\n";
-            i.Remove(' ');
+            i.Replace(' ', '$');
         }
         return res.Split('\n');
     }
 
     public void ExitConsole()
     {
+        stat.OpenWindow(score, maxScore);
         canvas.gameObject.SetActive(false);
         Input.ResetInputAxes();
         heromove.is_moving = true;
     }
-
 
     public void ChangeScreene()
     {
@@ -247,9 +249,10 @@ if __name__ == '__main__':
         screenRed.enabled = false;
     }
 
-    public void SetCode(string task, string answer)
+    public void SetCode(string task, string answer, int count)
     {
         codeTask = task;
         codeAns = answer;
+        score = count;
     }
 }

@@ -8,6 +8,7 @@ public class XMLReader : MonoBehaviour
 {
     public questObjScr queScr;
     public dialogObjScr dialScr;
+    public ConsoleScript conScr;
 
     public void StartQuestFromXml(string path)
     {
@@ -56,5 +57,37 @@ public class XMLReader : MonoBehaviour
         }
 
         dialScr.StartDialog(dialog, QuestPath);
+    }
+
+    public void SetConsoleDataFromXml(string path)
+    {
+        string savedPath = Application.dataPath;
+
+        savedPath += "/XML/Robots/";
+
+        switch (heroCounters.lang)
+        {
+            case heroCounters.Language.Csharp:
+                savedPath += "C#/";
+                break;
+            case heroCounters.Language.Python:
+                savedPath += "Python/";
+                break;
+            case heroCounters.Language.Java:
+                savedPath += "Java/";
+                break;
+        }
+
+        savedPath += "Robot" + path + ".xml";
+
+        XmlDocument savedDoc = new XmlDocument();
+        savedDoc.Load(savedPath);
+        XmlNode mission = savedDoc.GetElementsByTagName("mission")[0];
+
+        int points = int.Parse(mission.ChildNodes[0].InnerText);
+        string task = mission.ChildNodes[1].InnerText;
+        string check = mission.ChildNodes[2].InnerText;
+
+        conScr.SetCode(task, check, points);
     }
 }

@@ -20,6 +20,7 @@ public class startDialog : MonoBehaviour
                 break;
             case 3:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("3", "2");
+                FindObjectOfType<XMLReader>().SetConsoleDataFromXml("1");
                 break;
             case 4:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("4", "3");
