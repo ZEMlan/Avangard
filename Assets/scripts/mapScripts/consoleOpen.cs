@@ -5,6 +5,7 @@ using UnityEngine;
 public class consoleOpen : MonoBehaviour
 {
     public GameObject NpcMark;
+    public int numberDialog;
 
     private bool can_open;
     private GameObject npcMark;
@@ -26,11 +27,12 @@ public class consoleOpen : MonoBehaviour
     void OpenConsole()
     {
         canvas.gameObject.SetActive(true);
+        heromove.is_moving = false;
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && !questObjScr.is_quest)
+        if (collision.tag == "Player" && numberDialog == heroCounters.dialogCounter && questObjScr.is_quest)
         {
             npcMark = Instantiate(NpcMark) as GameObject;
             npcMark.transform.position = transform.position;

@@ -9,10 +9,12 @@ public class ConsoleScript : MonoBehaviour
     private SpriteRenderer screenRed, screenGreen;
     private Button butNext, butOK, butExitR, butExitG;
     private InputSimulator inputSimulator = new InputSimulator();
-    private GameObject hero;
+    public static GameObject hero;
     private Canvas canvas;
     private int attempts = 0;
     public int score = 14;
+
+    private int bestScore;
     //всё далее должно храниться в xml
     private string error = "\n\nFatal error code DI35: encoding error.\nCannot read inner code files: unknown symbol ‘?’.";
     private string codeTask = @"# Python 3.7
@@ -179,6 +181,7 @@ if __name__ == '__main__':
 
     public void CalculateScore()
     {
+        int maxScore = score;
         heroCounters.attempts += 1;
         string[] playerAnswer = Clean(input.text.Split('\n'));
         answer = Clean(answer);
@@ -193,10 +196,23 @@ if __name__ == '__main__':
                 score--;
             }
         }
+        
         if (score < 0)
             score = 0;
-        heroCounters.score += score;
+
+        if (score > bestScore)
+            bestScore = score;
+
+        if (score == maxScore || heroCounters.attempts == 3)
+        {
+            FindObjectOfType<questObjScr>().CompleteTask();
+            heroCounters.score += bestScore;
+            heroCounters.attempts = 0;
+        }
+
+
         ExitConsole();
+        score = maxScore;
     }
 
     private string[] Clean(string[] array)
@@ -214,7 +230,7 @@ if __name__ == '__main__':
     {
         canvas.gameObject.SetActive(false);
         Input.ResetInputAxes();
-        hero.SetActive(true);
+        heromove.is_moving = true;
     }
 
 
@@ -228,6 +244,11 @@ if __name__ == '__main__':
         butOK.gameObject.SetActive(true);
         screenGreen.enabled = true;
         screenRed.enabled = false;
-        hero.SetActive(false);
+    }
+
+    public void SetCode(string task, string answer)
+    {
+        codeTask = task;
+        codeAns = answer;
     }
 }

@@ -31,7 +31,6 @@ public class npcScript : MonoBehaviour
     // нужно будет сделать, чтобы диалог начинался ещё после нажатия определенной кнопки
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        print(heroCounters.dialogCounter);
         if (collision.tag == "Player" && !questObjScr.is_quest && dialogNumbers.Contains(heroCounters.dialogCounter) && !questObjScr.is_quest)
         {
             npcMark = Instantiate(NpcMark);
@@ -44,5 +43,6 @@ public class npcScript : MonoBehaviour
     public void OnTriggerExit2D(Collider2D collision)
     {
         Destroy(npcMark);
+        is_dialog = false;
     }
 }
