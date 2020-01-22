@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Здравствуйте. Вы Марфа-вдова? Я от Аннушки. Она сказала, что я могу помочь вам с роб-... с этими странными штуковинами. Я немного в этом понимаю.</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Да, это я. Ох, старая Аннушка как всегда. Что же, правда понимаешь? </message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Спросите у неё при случае, если мне не верите.</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Ну, хорошо.</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Все в деревне живут за счёт торговли овощами. Мы выращиваем несколько сортов - от обычных до элитных - чтобы продать их в городе на ярмарке. Но дети постоянно эти сорта путают, а нам и без этого есть чем занятся.</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Раньше всё это делала эта штука, а потом она сломалась…</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Можете не продолжать, я понял. Сейчас всё будет.</message>
+         </phrase>
+</dialog>

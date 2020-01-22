@@ -9,12 +9,7 @@ public class PCbuildingScript : MonoBehaviour
     public List<Sprite> clouds = new List<Sprite>();//список спрайтов облаков
     public List<Sprite> progressBarSprites = new List<Sprite>();//список спрайтов прогресс бара
     public Sprite computer;
-    public bool[] collects = new bool[8] {
-        false, false,
-        false, false,
-        false, false,
-        false, false
-    };
+    public int counter = 0;
     bool ready = false, oneDate = true;
     public float delay;//скорость сборки компьютера в сек
     IEnumerator WorkOnComputer(float delay) {//корутин, анимация сборки компьютера
@@ -29,7 +24,9 @@ public class PCbuildingScript : MonoBehaviour
             cloud.transform.position.y, 
             cloud.GetComponentInParent<Transform>().position.z - 1);
         cloud.GetComponent<SpriteRenderer>().sprite = computer;
+        FindObjectOfType<questObjScr>().CompleteTask();
     }
+
     public IEnumerator ProgressBar(float delay) {//корутин прогресс бара
         heromove.is_moving = false;
         progressBarObj.GetComponent<SpriteRenderer>().sprite = progressBarSprites[0];
@@ -42,13 +39,15 @@ public class PCbuildingScript : MonoBehaviour
         progressBarObj.GetComponent<SpriteRenderer>().sprite = null;
         heromove.is_moving = true;
     }
+
     private void Update() {
-        for (int i = 0; i < 8; i++) {
-            if (!collects[i]) {
-                break;
-            }
+        if (counter == 8)
+        {
             ready = true;
+            FindObjectOfType<questObjScr>().CompleteTask();
+            counter++;
         }
+
         if (ready && Input.GetKeyDown(KeyCode.E) && oneDate) {
             GameObject.Find("Main Camera").GetComponent<Inventory>().ClearInventory();
             StartCoroutine(ProgressBar(delay));

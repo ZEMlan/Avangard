@@ -50,27 +50,26 @@ public class questObjScr : MonoBehaviour
         switch (currentTask)
         {
             case 1:
-                QuestTask1.fontStyle = FontStyles.Strikethrough;
                 QuestTask1.color = new Color(0, 255, 0);
                 break;
             case 2:
-                QuestTask2.fontStyle = FontStyles.Strikethrough;
                 QuestTask2.color = new Color(0, 255, 0);
                 break;
             case 3:
-                QuestTask3.fontStyle = FontStyles.Strikethrough;
                 QuestTask3.color = new Color(0, 255, 0);
                 break;
         }
 
         if (questCount == currentTask)
             CompleteQuest();
+        else
+            currentTask++;
     }
 
     public void CompleteQuest()
     {
-        heroCounters.questCounter++;
         is_quest = false;
+        currentTask = 1;
 
         StartCoroutine(ShowCompleteBlock());
         StartCoroutine(CloseQuestBlock());
@@ -89,9 +88,16 @@ public class questObjScr : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         QuestName.text = "";
+
         QuestTask1.text = "";
+        QuestTask1.color = new Color(255, 255, 255);
+
         QuestTask2.text = "";
+        QuestTask2.color = new Color(255, 255, 255);
+
         QuestTask3.text = "";
+        QuestTask3.color = new Color(255, 255, 255);
+
         transform.DOLocalMoveX(1255f, 1);
     }
     

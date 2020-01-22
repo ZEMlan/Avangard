@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Ай, моя голова. Говорил мне тимлид подозрительные кнопки не нажимать!..</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Ох, чёрт. Менеджер меня убьёт!</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>...</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Ладно, хватит ныть, пора спасаться! Хей, это осколки моего компьютера. Надо собрать!</message>
+         </phrase>
+</dialog>
+
+

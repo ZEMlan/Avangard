@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Вот и всё.</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Ох, спасибо тебе большое! Даже не знаю, чем могу тебе помочь. У нас ничего нет…</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Возможно, у вас есть странные металлические штуки?</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Да, дети недавно притащили что-то такое. Вот, взгляни</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>О, да, это то, что нужно!</message>
+         </phrase>
+         <phrase>
+                 <name>Марфа-вдова</name>
+                 <image>Widow</image>
+                 <message>Вот и славно. Забирай, толку от неё всё равно никакого. Да и ржавая к тому же…</message>
+         </phrase>
+</dialog>
+
+

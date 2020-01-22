@@ -11,13 +11,18 @@ public class dialogObjScr : MonoBehaviour
     public TMP_Text SpeakerName, SpeakerPhrase;//имя и фраза говорящего
     public Image SpeakerFace;//иконка и сам блок
 
-    int MessageCooldown, //кулдаун между сообщениями
-        CurrentMessageNum;
+    int CurrentMessageNum;
 
     Dialog CurrentDialog;
 
-    public void StartDialog(Dialog dialog)
+    string QuestPath = "";
+    bool NextMessageReady = false;
+
+    public void StartDialog(Dialog dialog, string questPath)
     {
+        heromove.is_moving = false;
+        QuestPath = questPath;
+
         CurrentMessageNum = 0; //ищем все диалоги нужно нам типа
         CurrentDialog = dialog;
 
@@ -40,8 +45,6 @@ public class dialogObjScr : MonoBehaviour
             return;
         }
 
-        MessageCooldown = 3;
-
         SpeakerFace.sprite = currentPhrase.Speaker.Face;    //назначаем элементы говорящего
         SpeakerName.text = currentPhrase.Speaker.Name;
 
@@ -61,7 +64,7 @@ public class dialogObjScr : MonoBehaviour
             SpeakerPhrase.text += message[i];
 
             if (i == message.Length - 1)
-                StartCoroutine(NextMessage());
+                NextMessageReady = true;
 
             yield return new WaitForSeconds(.0001f);  //задержкамежду буквами
         }
@@ -70,11 +73,7 @@ public class dialogObjScr : MonoBehaviour
     //задержка между сообщениями
     IEnumerator NextMessage()
     {
-        while(MessageCooldown > 0)
-        {
-            MessageCooldown--;
-            yield return new WaitForSeconds(1);
-        }
+        yield return new WaitForSeconds(.5f);
 
         ShowMessage();
     }
@@ -82,7 +81,21 @@ public class dialogObjScr : MonoBehaviour
     //окончание диалога
     void EndDialog()
     {
-        FindObjectOfType<dialogAndQuest>().EndDialog();
+        heromove.is_moving = true;
+        if (QuestPath != "")
+            FindObjectOfType<XMLReader>().StartQuestFromXml(QuestPath);
+        QuestPath = "";
+        heroCounters.dialogCounter++;
+
         transform.DOLocalMoveY(-615, 1);         //смещаем блок диалога обратно
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && NextMessageReady)
+        {
+            StartCoroutine(NextMessage());
+            NextMessageReady = false;
+        }
     }
 }

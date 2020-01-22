@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest>
+       <questName>Овощная лавка</questName>
+       <questTasks>
+                   <questTask>Почини робота</questTask>
+       </questTasks>
+</quest>

@@ -13,7 +13,7 @@ public class XMLReader : MonoBehaviour
     {
         string savedPath = Application.dataPath;
 
-        savedPath += "/XML/Quests/" + path;
+        savedPath += "/XML/Quests/Quest" + path + ".xml";
         
         XmlDocument savedDoc = new XmlDocument();
         savedDoc.Load(savedPath);
@@ -31,30 +31,30 @@ public class XMLReader : MonoBehaviour
         queScr.StartQuest(quest);
     }
 
-    public void StartDialogFromXml(string path)
+    public void StartDialogFromXml(string path, string QuestPath = "")
     {
         string savedPath = Application.dataPath;
 
-        savedPath += "/XML/Dialogs/" + path;
+        savedPath += "/XML/Dialogs/Dialog" + path + ".xml";
 
         XmlDocument savedDoc = new XmlDocument();
         savedDoc.Load(savedPath);
-        XmlNodeList person = savedDoc.GetElementsByTagName("person");
+        XmlNodeList phrase = savedDoc.GetElementsByTagName("phrase");
 
         Dialog dialog = new Dialog();
 
-        for (int i = 0; i < person.Count; i++)
+        for (int i = 0; i < phrase.Count; i++)
         {
-            string name = person[i].ChildNodes[0].InnerText;
-            string face = person[i].ChildNodes[1].InnerText;
-            string phrase = person[i].ChildNodes[2].InnerText;
+            string name = phrase[i].ChildNodes[0].InnerText;
+            string face = phrase[i].ChildNodes[1].InnerText;
+            string message = phrase[i].ChildNodes[2].InnerText;
 
             DialogPerson per = new DialogPerson(name, face);
-            DialogPhrase phr = new DialogPhrase(per, phrase);
+            DialogPhrase phr = new DialogPhrase(per, message);
 
             dialog.AddPhrase(phr);
         }
 
-        dialScr.StartDialog(dialog);
+        dialScr.StartDialog(dialog, QuestPath);
     }
 }
