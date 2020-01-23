@@ -24,15 +24,18 @@ public class startDialog : MonoBehaviour
                 break;
             case 4:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("4", "3");
+                FindObjectOfType<XMLReader>().SetConsoleDataFromXml("2");
                 break;
             case 5:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("5", "4");
+                FindObjectOfType<XMLReader>().SetConsoleDataFromXml("3");
                 break;
             case 6:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("6");
                 break;
             case 7:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("7", "5");
+                FindObjectOfType<XMLReader>().SetConsoleDataFromXml("4");
                 break;
             case 8:
                 FindObjectOfType<XMLReader>().StartDialogFromXml("8");

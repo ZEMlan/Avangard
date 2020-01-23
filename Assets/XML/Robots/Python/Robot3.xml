@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mission>
+      <score>13</score>
+      <task># Python 3.7
+needle = MAGIC_CONST
+
+
+??? search(needle, first, last):
+    if first ? last:
+        return False
+    else:
+        middle = (first + last) // ?
+        if needle == haystack[middle]:
+            return ??????
+        elif needle &gt; haystack[middle]:
+            return search(needle, middle + 1, ????)
+        else:
+            return search(needle, ?????, middle - 1)
+
+
+???? reformat_haystack(haystack):
+    new_haystack = haystack.????()
+    for hay in haystack:
+        hay = ???(hay)
+    new_haystack.????()
+    ?????? new_haystack
+
+
+haystack = input()
+haystack = reformat_haystack(haystack)
+needle_location = ????(needle, 0, ????(haystack))
+print("Иголка находится на {0} месте".?????(needle_location))</task>
+      <check># Python 3.7
+needle = MAGIC_CONST
+
+
+def search(needle, first, last):
+    if first &gt; last:
+        return False
+    else:
+        middle = (first + last) // 2
+        if needle == haystack[middle]:
+            return middle
+        elif needle &gt; haystack[middle]:
+            return search(needle, middle + 1, last)
+        else:
+            return search(needle, first, middle - 1)
+
+
+def reformat_haystack(haystack):
+    new_haystack = haystack.split()
+    for hay in haystack:
+        hay = int(hay)
+    new_haystack.sort()
+    return new_haystack
+
+
+haystack = input()
+haystack = reformat_haystack(haystack)
+needle_location = search(needle, 0, len(haystack))
+print("Иголка находится на {0} месте".format(needle_location))</check>
+</mission>
+
+
+

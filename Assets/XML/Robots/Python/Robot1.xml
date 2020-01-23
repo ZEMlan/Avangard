@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mission>
       <score>17</score>
-      <task>def draw_board():
+      <task># Python 3.7
+
+
+def draw_board():
     print('-------------')
     for i in ?????(3):
         print('|', board[0 + i * 3], '|', board[1 + i * 3], '|', board[2 + i * 3], '|')
@@ -60,7 +63,10 @@ def main():
 if __name__ == '__main__':
     board = list(range(1, 10))
     ????()</task>
-      <check>def draw_board():
+      <check># Python 3.7
+
+
+def draw_board():
     print('-------------')
     for i in range(3):
         print('|', board[0 + i * 3], '|', board[1 + i * 3], '|', board[2 + i * 3], '|')
@@ -120,4 +126,5 @@ if __name__ == '__main__':
     board = list(range(1, 10))
     main()</check>
 </mission>
+
 
