@@ -30,6 +30,17 @@
                  <image>Widow</image>
                  <message>Вот и славно. Забирай, толку от неё всё равно никакого. Да и ржавая к тому же…</message>
          </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>До свидания!</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Ладно, вернусь к компьютеру, может найду что-нибудь там.</message>
+         </phrase>
 </dialog>
+
 
 

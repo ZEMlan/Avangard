@@ -38,10 +38,10 @@ public class startDialog : MonoBehaviour
                 FindObjectOfType<XMLReader>().SetConsoleDataFromXml("4");
                 break;
             case 8:
-                FindObjectOfType<XMLReader>().StartDialogFromXml("8");
+                FindObjectOfType<XMLReader>().StartDialogFromXml("8", "6");
                 break;
             case 9:
-                FindObjectOfType<XMLReader>().StartDialogFromXml("9", "6");
+                FindObjectOfType<XMLReader>().StartDialogFromXml("9");
                 break;
             }
     }
