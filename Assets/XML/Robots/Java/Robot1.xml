@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mission>
+      <score>25</score>
+      <task>package magic.magic;
+
+????? java.util.Scanner;
+
+public ????? Tictac {
+    static String[] board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    static Scanner scanner = ??? Scanner(System.in);
+
+    ???? drawBoard(){
+        System.???.println("------------");
+        ??? (int i = 0; i &lt; 3; i++) {
+            System.???.println("|" + board[i * 3] + "|" + board[1+i*3] + "|" + board[2+i*3] + "|");
+            System.out.println("------------");
+        }
+    }
+
+    void handleInput(String token) {
+        ?????? (true){
+            System.out.?????("Куда поставим %s?", token);
+            var ??????? = scanner.nextInt();
+            if (1 &lt;= input &amp;&amp; input &lt;= 9){
+                if(!board[input-1].equals("X") &amp;&amp; !board[input-1].equals("O")){
+                    board[input-1] = ??????;
+                    break;
+                }
+                ????
+                    System.out.println("Это клетка уже занята.");
+            }
+            ????
+                System.out.println("Некорректный ввод. Число должно быть от 1 до 9");
+
+        }
+    }
+
+    String isWin(){
+        int[][] ?????? = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
+        for(var triple: winCoord){
+            if(board[triple[0]].equals(board[triple[1]]) ?? board[triple[1]].equals(board[triple[2]]))
+                ???? board[triple[1]];
+        }
+        return "-1";
+    }
+
+    ???? main(){
+        var ?????? = 0;
+        while(true){
+            drawBoard();
+            if (counter % 2 == 0)
+                handleInput("X");
+            ????
+                handleInput("O");
+            ???????++;
+            if(counter &gt; 4){
+                var ?????? = isWin();
+                if(!winner.equals("-1")) {
+                    System.out.???????("%s выиграл!", winner);
+                    break;
+                }
+            }
+            if(counter == 9){
+                ??????.out.println("Ничья!");
+                break;
+            }
+        }
+    }
+}</task>
+      <check>package magic.magic;
+
+import java.util.Scanner;
+
+public class Tictac {
+    static String[] board = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    static Scanner scanner = new Scanner(System.in);
+
+    void drawBoard(){
+        System.out.println("------------");
+        for (int i = 0; i &lt; 3; i++) {
+            System.out.println("|" + board[i * 3] + "|" + board[1+i*3] + "|" + board[2+i*3] + "|");
+            System.out.println("------------");
+        }
+    }
+
+    void handleInput(String token) {
+        while (true){
+            System.out.printf("Куда поставим %s?", token);
+            var input = scanner.nextInt();
+            if (1 &lt;= input &amp;&amp; input &lt;= 9){
+                if(!board[input-1].equals("X") &amp;&amp; !board[input-1].equals("O")){
+                    board[input-1] = token;
+                    break;
+                }
+                else
+                    System.out.println("Это клетка уже занята.");
+            }
+            else
+                System.out.println("Некорректный ввод. Число должно быть от 1 до 9");
+
+        }
+    }
+
+    String isWin(){
+        int[][] winCoord = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, {0, 4, 8}, {2, 4, 6}};
+        for(var triple: winCoord){
+            if(board[triple[0]].equals(board[triple[1]]) &amp;&amp; board[triple[1]].equals(board[triple[2]]))
+                return board[triple[1]];
+        }
+        return "-1";
+    }
+
+    void main(){
+        var counter = 0;
+        while(true){
+            drawBoard();
+            if (counter % 2 == 0)
+                handleInput("X");
+            else
+                handleInput("O");
+            counter++;
+            if(counter &gt; 4){
+                var winner = isWin();
+                if(!winner.equals("-1")) {
+                    System.out.printf("%s выиграл!", winner);
+                    break;
+                }
+            }
+            if(counter == 9){
+                System.out.println("Ничья!");
+                break;
+            }
+        }
+    }
+}</check>
+</mission>
+
+
+
+
