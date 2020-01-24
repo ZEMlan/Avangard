@@ -6,10 +6,13 @@ public class consoleOpen : MonoBehaviour
 {
     public GameObject NpcMark;
     public int numberDialog;
+    public ConsoleScript consoleScript;
 
     private bool can_open;
+    private bool is_open;
     private GameObject npcMark;
     private Canvas canvas;
+
 
     void Start()
     {
@@ -20,13 +23,19 @@ public class consoleOpen : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && can_open)
         {
-            OpenConsole();
+            if (numberDialog == 9)
+                consoleScript.OpenFinalConsole();
+            else
+                OpenConsole();
+            is_open = true;
         }
     }
 
     void OpenConsole()
     {
         canvas.gameObject.SetActive(true);
+        if (!is_open)
+            ConsoleScript.UpdateTask();
         heromove.is_moving = false;
     }
 

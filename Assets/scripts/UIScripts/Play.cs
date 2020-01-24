@@ -4,19 +4,19 @@ public class Play : MonoBehaviour {
     public int ProgrammngLanguage;
     public void BAMSPressed()
     {
-        ProgrammngLanguage = 1;
+        heroCounters.lang = heroCounters.Language.Python;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void CSPressed()
     {
-        ProgrammngLanguage = 2;
+        heroCounters.lang = heroCounters.Language.Csharp;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void JavaPressed()
     {
-        ProgrammngLanguage = 3;
+        heroCounters.lang = heroCounters.Language.Java;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

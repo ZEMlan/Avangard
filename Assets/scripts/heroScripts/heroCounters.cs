@@ -10,10 +10,10 @@ public class heroCounters : MonoBehaviour
     public static Language lang = Language.Csharp;
     public static int score = 0;
     public static int attempts = 0;
-    public System.DateTime StartTime;
+    public static System.DateTime StartTime;
 
     private void Start()
     {
-        StartTime = System.DateTime.Today;
+        StartTime = System.DateTime.Now;
     }
 }

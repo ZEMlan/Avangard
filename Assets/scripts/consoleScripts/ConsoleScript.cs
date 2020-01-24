@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using WindowsInput;
 
 public class ConsoleScript : MonoBehaviour
 {
-    private InputField input;
+    private static InputField input;
     private SpriteRenderer screenRed, screenGreen;
     private Button butNext, butOK, butExitR, butExitG;
     private InputSimulator inputSimulator = new InputSimulator();
@@ -15,136 +16,11 @@ public class ConsoleScript : MonoBehaviour
     public int score = 14;
     private int maxScore;
     public robotStatistics stat;
-
     private int bestScore;
     //всё далее должно храниться в xml
     private string error = "\n\nFatal error code DI35: encoding error.\nCannot read inner code files: unknown symbol ‘?’.";
-    private string codeTask/* = @"# Python 3.7
-global board
-
-
-def draw_board():
-    print('-------------')
-    for i in ?????(3):
-        print('|', board[0 + i * 3], '|', board[1 + i * 3], '|', board[2 + i * 3], '|')
-        print('-------------')
-
-
-??? take_input(player_token) :
-    valid = False
-    while ??? valid:
-        player_answer = input('Куда поставим ' + player_token + '?')
-        ???:
-            player_answer = ???(player_answer)
-        except:
-            print('Некорректный ввод. Вы уверены, что ввели число?')
-            continue
-        if 1 <= player_answer <= 9:
-            if str(board[player_answer - 1]) not in 'XO':
-                board[player_answer - 1] = player_token
-                valid = True
-            ????:
-                print('Эта клеточка уже занята')
-        ????:
-            print('Некорректный ввод. Введите число от 1 до 9 чтобы походить.')
-
-
-def check_win():
-    win_coord = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
-    ??? each ?? win_coord:
-        if board[each[0]] == board[each[1]] == board[each[2]]:
-            return board[each[0]]
-    ????? False
-
-
-def main() :
-    counter = 0
-    win = False
-    ?????? not win:
-        draw_board()
-        if counter % 2 == 0:
-            take_input('X')
-        ????:
-            take_input('O')
-        counter += 1
-        if counter > 4:
-            tmp = check_win()
-            if tmp:
-                ?????(tmp, 'выиграл!')
-                win = True
-                break
-        if counter == 9:
-            ?????(' Ничья!')
-            ?????
-    draw_board()
-
-
-if __name__ == '__main__':
-    board = list(range(1, 10))
-    ????()"*/;
-    private string codeAns /*= @"# Python 3.7
-global board
-
-
-def draw_board():
-    print('-------------')
-    for i in range(3):
-        print('|', board[0 + i * 3], '|', board[1 + i * 3], '|', board[2 + i * 3], '|')
-        print('-------------')
-
-
-def take_input(player_token) :
-    valid = False
-    while not valid:
-        player_answer = input('Куда поставим ' + player_token + '?')
-        try:
-            player_answer = ???(player_answer)
-        except:
-            print('Некорректный ввод. Вы уверены, что ввели число?')
-            continue
-        if 1 <= player_answer <= 9:
-            if str(board[player_answer - 1]) not in 'XO':
-                board[player_answer - 1] = player_token
-                valid = True
-            else:
-                print('Эта клеточка уже занята')
-        else:
-            print('Некорректный ввод. Введите число от 1 до 9 чтобы походить.')
-
-
-def check_win():
-    win_coord = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
-    for each in win_coord:
-        if board[each[0]] == board[each[1]] == board[each[2]]:
-            return board[each[0]]
-    return False
-
-
-def main() :
-    counter = 0
-    win = False
-    while not win:
-        draw_board()
-        if counter % 2 == 0:
-            take_input('X')
-        else:
-            take_input('O')
-        counter += 1
-        if counter > 4:
-            tmp = check_win()
-            if tmp:
-                print(tmp, 'выиграл!')
-                win = True
-                break
-        if counter == 9:
-            print(' Ничья!')
-            break
-    draw_board()
-
-
-if __name__ == '__main__':
-    board = list(range(1, 10))
-    main()"*/;
+    private static string codeTask;
+    private string codeAns;
     private string[] answer;
 
     void Start()
@@ -249,10 +125,39 @@ if __name__ == '__main__':
         screenRed.enabled = false;
     }
 
+    public static void UpdateTask()
+    {
+        input.text = codeTask;
+    }
+
     public void SetCode(string task, string answer, int count)
     {
         codeTask = task;
         codeAns = answer;
         score = count;
+    }
+
+    public void OpenFinalConsole()
+    {
+        canvas.gameObject.SetActive(true);
+        heromove.is_moving = false;
+        ChangeScreene();
+        codeTask = string.Format("\n\n\nНабранно баллов: {0} из 81.\n" +
+        "Время прохождение: {1}\n\nДля завершения игры нажмите \"ОК\".", heroCounters.score, 
+        GetTime());
+        butOK.onClick.AddListener(delegate { CloseGame(); });
+    }
+
+    private void CloseGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
+    private string GetTime()
+    {
+        System.DateTime first = heroCounters.StartTime;
+        System.DateTime last = System.DateTime.Now;
+        int calc = last.Second - first.Second;
+        return calc/60 + " мин. " + (calc - calc/60) +" сек.";
     }
 }
