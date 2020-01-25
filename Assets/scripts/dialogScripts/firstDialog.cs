@@ -5,11 +5,11 @@ using UnityEngine;
 public class firstDialog : MonoBehaviour
 {
     public startDialog DialogPlay;
+    public static bool oneTime = true;
 
-    // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartQuest());
+            StartCoroutine(StartQuest());
     }
 
     IEnumerator StartQuest()

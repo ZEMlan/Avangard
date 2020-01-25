@@ -86,6 +86,7 @@ public class ConsoleScript : MonoBehaviour
             FindObjectOfType<questObjScr>().CompleteTask();
             heroCounters.score += bestScore;
             heroCounters.attempts = 0;
+            consoleOpen.firstTime = false;
         }
 
 

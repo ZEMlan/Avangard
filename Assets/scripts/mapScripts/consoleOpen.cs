@@ -8,6 +8,8 @@ public class consoleOpen : MonoBehaviour
     public int numberDialog;
     public ConsoleScript consoleScript;
 
+    public static bool firstTime = true;
+
     private bool can_open;
     private bool is_open;
     private GameObject npcMark;
@@ -34,7 +36,7 @@ public class consoleOpen : MonoBehaviour
     void OpenConsole()
     {
         canvas.gameObject.SetActive(true);
-        if (!is_open)
+        if (!is_open && !firstTime)
             ConsoleScript.UpdateTask();
         heromove.is_moving = false;
     }

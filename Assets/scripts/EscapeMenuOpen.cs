@@ -26,5 +26,6 @@ public class EscapeMenuOpen : MonoBehaviour
     public void CloseGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        Time.timeScale = 1;
     }
 }
