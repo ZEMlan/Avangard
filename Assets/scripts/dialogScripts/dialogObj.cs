@@ -11,7 +11,7 @@ public class DialogPerson
     public DialogPerson(string name, string facePath)
     {
         Name = name;
-        Face = Resources.Load<Sprite>(facePath); //ищем спрайт в папке Resources, нужно будет поменять 
+        Face = Resources.Load<Sprite>("faceSprites/" + facePath); //ищем спрайт в папке Resources, нужно будет поменять 
     }
 }
 

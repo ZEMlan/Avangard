@@ -12,12 +12,12 @@ public class XMLReader : MonoBehaviour
 
     public void StartQuestFromXml(string path)
     {
-        string savedPath = Application.dataPath;
+        string savedPath = "";
 
-        savedPath += "/XML/Quests/Quest" + path + ".xml";
+        savedPath += "XML/Quests/Quest" + path;
         
         XmlDocument savedDoc = new XmlDocument();
-        savedDoc.Load(savedPath);
+        savedDoc.LoadXml(Resources.Load<TextAsset>(savedPath).text);
         string questName = savedDoc.GetElementsByTagName("questName")[0].InnerText;
         XmlNodeList questTasks = savedDoc.GetElementsByTagName("questTasks")[0].ChildNodes;
 
@@ -34,12 +34,12 @@ public class XMLReader : MonoBehaviour
 
     public void StartDialogFromXml(string path, string QuestPath = "")
     {
-        string savedPath = Application.dataPath;
+        string savedPath = "";
 
-        savedPath += "/XML/Dialogs/Dialog" + path + ".xml";
+        savedPath += "XML/Dialogs/Dialog" + path;
 
         XmlDocument savedDoc = new XmlDocument();
-        savedDoc.Load(savedPath);
+        savedDoc.LoadXml(Resources.Load<TextAsset>(savedPath).text);
         XmlNodeList phrase = savedDoc.GetElementsByTagName("phrase");
 
         Dialog dialog = new Dialog();
@@ -61,9 +61,9 @@ public class XMLReader : MonoBehaviour
 
     public void SetConsoleDataFromXml(string path)
     {
-        string savedPath = Application.dataPath;
+        string savedPath = "";
 
-        savedPath += "/XML/Robots/";
+        savedPath += "XML/Robots/";
 
         switch (heroCounters.lang)
         {
@@ -78,10 +78,10 @@ public class XMLReader : MonoBehaviour
                 break;
         }
 
-        savedPath += "Robot" + path + ".xml";
+        savedPath += "Robot" + path;
 
         XmlDocument savedDoc = new XmlDocument();
-        savedDoc.Load(savedPath);
+        savedDoc.LoadXml(Resources.Load<TextAsset>(savedPath).text);
         XmlNode mission = savedDoc.GetElementsByTagName("mission")[0];
 
         int points = int.Parse(mission.ChildNodes[0].InnerText);

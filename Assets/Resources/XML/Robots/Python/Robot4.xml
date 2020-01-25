@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mission>
+      <score>22</score>
+      <task># Python 3.7
+import random
+
+
+def bubble_sort():
+    n = len(array)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if array[j] &gt; array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+    return  array
+
+
+def insertion_sort():
+    for i in range(1, len(array)):
+        key = array[i]
+        j = i - 1
+        while j &gt;= 0 and key &lt; array[j]:
+            array[j + 1] = array[j]
+            j -= 1
+        array[j + 1] = key
+    return array
+
+
+def selection_sort():
+    for i in range(len(array)):
+        min_idx = i
+        for j in range(i + 1, len(array)):
+            if array[min_idx] &gt; array[j]:
+                min_idx = j
+        array[i], array[min_idx] = array[min_idx], array[i]
+    return array
+
+
+def quick_sort(first, last):
+    if first &gt;= last:
+        return
+    i, j = first, last
+    p = array[random.randint(first, last)]
+    while i &lt;= j:
+        while array[i] &lt; p:
+            i += 1
+        while array[j] &gt; p:
+            j -= 1
+        if i &lt;= j:
+            array[i], array[j] = array[j], array[i]
+            i += 1
+            j -= 1
+            quick_sort(first, j)
+            quick_sort(i, last)
+    return array
+
+
+def merge_sort():
+    if len(array) &lt;= 1:
+        return array
+    mid = len(array) // 2
+    left = merge_sort(array[:mid])
+    right = merge_sort(array[mid:])
+    return merge(left, right)
+
+
+def merge(left, right):
+    res = []
+    i, j = 0, 0
+    while i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt; right[j]:
+            res.append(left[i])
+            i += 1
+        else:
+            res.append(right[j])
+            j += 1
+    res += left[i:] + right[j:]
+    return res
+
+
+array = list(map(int, input().split()))
+print(bubble_sort())
+print(insertion_sort())
+print(selection_sort())
+print(quick_sort(0, len(array)))
+print(merge_sort())</task>
+      <check># Python 3.7
+import random
+
+
+def bubble_sort():
+    n = ???(array)
+    for i in range(n):
+        for j in ?????(0, n - i - 1):
+            if ?????[j] &gt; ?????[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+    return array
+
+
+??? insertion_sort():
+    for i in range(1, len(array)):
+        key = ?????[i]
+        j = i - 1
+        ????? j &gt;= 0 and key &lt; array[j]:
+            array[j + 1] = array[j]
+            j -= 1
+        array[j + 1] = key
+    ?????? array
+
+
+??? selection_sort():
+    for i in range(len(array)):
+        min_idx = i
+        for j in ?????(i + 1, len(array)):
+            if array[min_idx] &gt; array[j]:
+                min_idx = j
+        array[i], array[min_idx] = array[min_idx], array[i]
+    return array
+
+
+def quick_sort(first, last):
+    if first &gt;= last:
+        ??????
+    i, j = first, last
+    p = array[random.randint(first, last)]
+    while i &lt;= j:
+        ???? array[i] &lt; p:
+            i += 1
+        while array[j] &gt; p:
+            j -= 1
+        ??? i &lt;= j:
+            array[i], array[j] = array[j], array[i]
+            i += 1
+            j -= 1
+            ??????????(first, j)
+            quick_sort(i, ????)
+
+
+def merge_sort():
+    if ???(array) &lt;= 1:
+        return array
+    mid = len(array) // 2
+    left = merge_sort(array[:???])
+    right = merge_sort(array[???:])
+    return ????(left, right)
+
+
+def merge(left, right):
+    res = []
+    i, j = 0, 0
+    ????? i &lt; len(left) and j &lt; len(right):
+        if left[i] &lt; right[j]:
+            res.??????(left[i])
+            i += 1
+        ????:
+            res.append(right[j])
+            j += 1
+    res += left[i:] + right[j:]
+    return ???
+
+
+array = list(???(int, input().????()))
+print(bubble_sort())
+print(insertion_sort())
+print(selection_sort())
+print(quick_sort(0, len(array)))
+print(merge_sort())</check>
+</mission>
+
+
+

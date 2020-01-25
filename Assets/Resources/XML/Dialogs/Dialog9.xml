@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Понятно только то, что ничего не понятно...</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Ладно, вернусь к компьютеру, может найду что-нибудь там.</message>
+         </phrase>
+</dialog>

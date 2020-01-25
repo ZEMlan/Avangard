@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest>
+       <questName>Потерянный в горах</questName>
+       <questTasks>
+                   <questTask>Найди робота в горах</questTask>
+                   <questTask>Почини робота</questTask>
+       </questTasks>
+</quest>
+

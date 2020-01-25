@@ -26,7 +26,7 @@ public class dialogObjScr : MonoBehaviour
         CurrentMessageNum = 0; //ищем все диалоги нужно нам типа
         CurrentDialog = dialog;
 
-        transform.DOLocalMoveY(-465, 1);                                  //меняем положение блока по оси Y с анимацией
+        transform.DOLocalMoveY(-432, 1);                                  //меняем положение блока по оси Y с анимацией
                                                                   
         ShowMessage();
     }
@@ -87,7 +87,7 @@ public class dialogObjScr : MonoBehaviour
         QuestPath = "";
         heroCounters.dialogCounter++;
 
-        transform.DOLocalMoveY(-615, 1);         //смещаем блок диалога обратно
+        transform.DOLocalMoveY(-648, 1);         //смещаем блок диалога обратно
     }
 
     private void Update()

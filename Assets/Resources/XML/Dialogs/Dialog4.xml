@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog>
+        <phrase>
+                 <name>Дедуля</name>
+                 <image>Grandpa</image>
+                 <message>Спасибо, сынок, помог старому!</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Да что там. Скажите, вот где вы достали это?</message>
+         </phrase>
+         <phrase>
+                 <name>Дедуля</name>
+                 <image>Grandpa</image>
+                 <message>Здеся, всё здеся. Тута мно-о-ого таких ещё вокруг, в горах одного видел! А ещё у старухи был.</message>
+         </phrase>
+         <phrase>
+                 <name>Дедуля</name>
+                 <image>Grandpa</image>
+                 <message>Никому не нужны они, страшные непонятные штуковины! Ещё и горят и бахают ото всякого чиха!</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Спасибо. Ну, бывайте!</message>
+         </phrase>
+         <phrase>
+                 <name>Дедуля</name>
+                 <image>Grandpa</image>
+                 <message>Как, уходишь? Стой, подожди! У старого есть кое-чего для тебя…</message>
+         </phrase>
+         <phrase>
+                 <name>Дедуля</name>
+                 <image>Grandpa</image>
+                 <message>Вот те, бери! Хороша книга, красивая! Пригодится!</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Да-да, спасибо, до свидания.</message>
+         </phrase>
+         <phrase>
+                 <name>MC</name>
+                 <image>Main Character</image>
+                 <message>Вот же прицепился…</message>
+         </phrase>
+</dialog>
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<quest>
+       <questName>Собери их всех!!!</questName>
+       <questTasks>
+                   <questTask>Собрать разбросанные детали</questTask>
+                   <questTask>Собери компьютер</questTask>
+       </questTasks>
+</quest>
+
+

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mission>
+      <score>11</score>
+      <task># Python 3.7
+
+
+??? screen_the_ore(ore: str):
+    mass = ore.split()
+    mass.sort(???=?????? x: str.lower(x), reverse=True)
+    for ???? in mass:
+        if item in elements.keys():
+            continue
+        ????:
+            mass.remove(item)
+    ??????? mass
+
+
+def count_each_ore(mass):
+    for item in ????:
+        elements[????] += 1
+
+
+??? main():
+    ore = input()
+    mass = screen_the_ore(ore)
+    count_each_ore(mass)
+    for ??????? in elements.keys():
+        print('{0}: {1}'.format(element, elements[element]))
+
+
+if __name__ == '__main__':
+    elements = {'Li': 0, 'Si': 0, 'Cu': 0, 'Al': 0, 'Fe': 0}
+    ????()</task>
+      <check># Python 3.7
+
+
+def screen_the_ore(ore: str):
+    mass = ore.split()
+    mass.sort(key=lambda x: str.lower(x), reverse=True)
+    for item in mass:
+        if item in elements.keys():
+            continue
+        else:
+            mass.remove(item)
+    return mass
+
+
+def count_each_ore(mass):
+    for item in mass:
+        elements[item] += 1
+
+
+def main():
+    ore = input()
+    mass = screen_the_ore(ore)
+    count_each_ore(mass)
+    for element in elements.keys():
+        print('{0}: {1}'.format(element, elements[element]))
+
+
+if __name__ == '__main__':
+    elements = {'Li': 0, 'Si': 0, 'Cu': 0, 'Al': 0, 'Fe': 0}
+    main()</check>
+</mission>
+
+
