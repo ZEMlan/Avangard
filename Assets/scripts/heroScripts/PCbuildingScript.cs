@@ -13,7 +13,7 @@ public class PCbuildingScript : MonoBehaviour
 
     public int counter = 0;
     GameObject npcMark;
-    bool ready = false, oneDate = true, entered = false;
+    bool ready = false, oneDate = true, entered = false, collected = false;
     public float delay;//скорость сборки компьютера в сек
     IEnumerator WorkOnComputer(float delay) {//корутин, анимация сборки компьютера
         cloud.GetComponent<SpriteRenderer>().sprite = clouds[0];
@@ -49,9 +49,12 @@ public class PCbuildingScript : MonoBehaviour
             ready = true;
             FindObjectOfType<questObjScr>().CompleteTask();
             counter++;
+            collected = true;
         }
 
         if (ready && Input.GetKeyDown(KeyCode.E) && oneDate && entered) {
+            Destroy(npcMark);
+            ready = false;
             GameObject.Find("Main Camera").GetComponent<Inventory>().ClearInventory();
             Destroy(npcMark);
             StartCoroutine(ProgressBar(delay));
@@ -62,7 +65,7 @@ public class PCbuildingScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && collected)
         {
             entered = true;
             npcMark = Instantiate(NpcMark);

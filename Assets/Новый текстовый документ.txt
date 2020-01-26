@@ -2,4 +2,4 @@ abcdefghijklmnopqrstuvwxyz
 ABCDEFGHIJKLMNOPQRSTUVWXYZ
 абвгдеёжзийклмнопрстуфхцчшщъыьэюя
 АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ
-.,;:!?
+.,;:!?#

@@ -66,7 +66,7 @@ public class dialogObjScr : MonoBehaviour
             if (i == message.Length - 1)
                 NextMessageReady = true;
 
-            yield return new WaitForSeconds(.0001f);  //задержкамежду буквами
+            yield return new WaitForSeconds(.00001f);  //задержкамежду буквами
         }
     }
 

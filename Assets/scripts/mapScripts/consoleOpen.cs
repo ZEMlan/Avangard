@@ -10,8 +10,9 @@ public class consoleOpen : MonoBehaviour
 
     public static bool firstTime = true;
 
-    private bool can_open;
-    private bool is_open;
+    public static bool can_open = false;
+    public static bool need_to_update = false;
+    public static bool is_open = false;
     private GameObject npcMark;
     private Canvas canvas;
 
@@ -23,12 +24,14 @@ public class consoleOpen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && can_open)
+        if (Input.GetKeyDown(KeyCode.E) && can_open && !is_open)
         {
-            if (numberDialog == 9)
-                consoleScript.OpenFinalConsole();
-            else
-                OpenConsole();
+            Destroy(npcMark);
+            if (!is_open)
+                if (heroCounters.dialogCounter == 9)
+                    consoleScript.OpenFinalConsole();
+                else
+                    OpenConsole();
             is_open = true;
         }
     }
@@ -36,8 +39,11 @@ public class consoleOpen : MonoBehaviour
     void OpenConsole()
     {
         canvas.gameObject.SetActive(true);
-        if (!is_open && !firstTime)
+        if (need_to_update)
+        {
             ConsoleScript.UpdateTask();
+            need_to_update = false;
+        }
         heromove.is_moving = false;
     }
 

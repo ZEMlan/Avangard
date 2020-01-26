@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mission>
-      <score>11</score>
+      <score>10</score>
       <task># Python 3.7
 
 
 ??? screen_the_ore(ore: str):
     mass = ore.split()
-    mass.sort(???=?????? x: str.lower(x), reverse=True)
+    mass.sort(???=lambda x: str.lower(x), reverse=True)
     for ???? in mass:
         if item in elements.keys():
             continue
@@ -62,5 +62,6 @@ if __name__ == '__main__':
     elements = {'Li': 0, 'Si': 0, 'Cu': 0, 'Al': 0, 'Fe': 0}
     main()</check>
 </mission>
+
 
 

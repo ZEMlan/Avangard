@@ -20,8 +20,8 @@ public class ConsoleScript : MonoBehaviour
     //всё далее должно храниться в xml
     private string error = "\n\nFatal error code DI35: encoding error.\nCannot read inner code files: unknown symbol ‘?’.";
     private static string codeTask;
-    private string codeAns;
-    private string[] answer;
+    private static string codeAns;
+    private static string[] answer;
 
     void Start()
     {
@@ -85,12 +85,16 @@ public class ConsoleScript : MonoBehaviour
         {
             FindObjectOfType<questObjScr>().CompleteTask();
             heroCounters.score += bestScore;
+            heroCounters.maxScore += maxScore;
+            bestScore = 0;
             heroCounters.attempts = 0;
-            consoleOpen.firstTime = false;
+            consoleOpen.can_open = false;
+            consoleOpen.need_to_update = true;
         }
 
 
         ExitConsole();
+        stat.OpenWindow(score, maxScore);
         score = maxScore;
     }
 
@@ -108,9 +112,9 @@ public class ConsoleScript : MonoBehaviour
 
     public void ExitConsole()
     {
-        stat.OpenWindow(score, maxScore);
         canvas.gameObject.SetActive(false);
         Input.ResetInputAxes();
+        consoleOpen.is_open = false;
         heromove.is_moving = true;
     }
 
@@ -129,6 +133,7 @@ public class ConsoleScript : MonoBehaviour
     public static void UpdateTask()
     {
         input.text = codeTask;
+        answer = codeAns.Split('\n');
     }
 
     public void SetCode(string task, string answer, int count)
@@ -143,9 +148,10 @@ public class ConsoleScript : MonoBehaviour
         canvas.gameObject.SetActive(true);
         heromove.is_moving = false;
         ChangeScreene();
-        codeTask = string.Format("\n\n\nНабранно баллов: {0} из 81.\n" +
-        "Время прохождение: {1}\n\nДля завершения игры нажмите \"ОК\".", heroCounters.score, 
+        codeTask = string.Format("\n\n\nНабранно баллов: {0} из {1}.\n" +
+        "Время прохождение: {2}\n\nДля завершения игры нажмите \"ОК\".", heroCounters.score, heroCounters.maxScore,
         GetTime());
+        UpdateTask();
         butOK.onClick.AddListener(delegate { CloseGame(); });
     }
 

@@ -9,6 +9,7 @@ public class heroCounters : MonoBehaviour
     public static int dialogCounter = 1;
     public static Language lang = Language.Python;
     public static int score = 0;
+    public static int maxScore = 0;
     public static int attempts = 0;
     public static System.DateTime StartTime;
 
