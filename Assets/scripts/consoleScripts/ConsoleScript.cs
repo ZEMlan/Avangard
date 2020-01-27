@@ -164,7 +164,12 @@ public class ConsoleScript : MonoBehaviour
     {
         System.DateTime first = heroCounters.StartTime;
         System.DateTime last = System.DateTime.Now;
-        int calc = last.Second - first.Second;
-        return calc/60 + " мин. " + (calc - calc/60) +" сек.";
+        System.TimeSpan time = last - first;
+        //int hours = last.Hour - first.Hour;
+        //int min = (last.Minute >= first.Minute) ? (last.Minute - first.Minute) : {};
+        //if (last.Minute >= first.Minute)
+            //min = last.Minute - first.Minute;
+        //int sec = last.Second - first.Second;
+        return time.Hours + " час" + time.Minutes + " мин. " + time.Seconds +" сек.";
     }
 }

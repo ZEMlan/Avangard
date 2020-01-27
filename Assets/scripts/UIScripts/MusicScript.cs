@@ -10,7 +10,7 @@ public class MusicScript : MonoBehaviour
     {
         if(music == null)
             music = Camera.main.GetComponent<AudioSource>();
-        music.clip = clips[Random.Range(0, clips.Length - 1)];
+        music.clip = clips[Random.Range(0, clips.Length)];
         music.Play();
     }
 
@@ -18,7 +18,7 @@ public class MusicScript : MonoBehaviour
     {
         if (!music.isPlaying)
         {
-            music.clip = clips[Random.Range(0, clips.Length - 1)];
+            music.clip = clips[Random.Range(0, clips.Length)];
             music.Play();
         }
     }
