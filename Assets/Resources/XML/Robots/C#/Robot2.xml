@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mission>
-      <score>14</score>
+      <score>13</score>
       <task>using System;
 using ???????.Collections.Generic;
 
-Dictionary&lt;string, int&gt; ????????? = new Dictionary&lt;string, ???&gt;(5) {
+Dictionary&lt;string, int&gt; ????????? = new Dictionary&lt;string, int&gt;(5) {
             {"Li", 0},
             {"Si", 0},
             {"Cu", 0},
@@ -74,6 +74,7 @@ Dictionary&lt;string, int&gt; elements = new Dictionary&lt;string, int&gt;(5) {
             }
         }</check>
 </mission>
+
 
 
 

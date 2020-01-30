@@ -42,7 +42,6 @@ public class npcScript : MonoBehaviour
 
     public void OnTriggerExit2D(Collider2D collision)
     {
-        Destroy(npcMark);
         is_dialog = false;
     }
 }

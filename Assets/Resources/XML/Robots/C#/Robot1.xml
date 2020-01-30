@@ -35,7 +35,7 @@ public char[] board = ??? char[9]
             }
             Console.WriteLine("-------");
         }
-        public void TakeInput(????player_place) {
+        public void TakeInput(???? player_place) {
             bool valid = ???????
             int player_answer;
             ??????(!valid) {
@@ -171,6 +171,7 @@ public char[] board = new char[9]
         }
     }</check>
 </mission>
+
 
 
 

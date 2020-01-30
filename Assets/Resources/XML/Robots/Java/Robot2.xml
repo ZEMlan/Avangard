@@ -14,7 +14,7 @@ public class Digging {
 
     ArrayList&lt;String&gt; screenTheOre(String ???){
         String[] mass = ore.split(" ");
-        ??????????&lt;String&gt; screening = ??  ArrayList&lt;&gt;();
+        ??????????&lt;String&gt; screening = new  ArrayList&lt;&gt;();
         for(var item: mass){
             if(elements.containsKey(item))
                 screening.add(????);
@@ -72,6 +72,7 @@ public class Digging {
     }
 }</check>
 </mission>
+
 
 
 

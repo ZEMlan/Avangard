@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mission>
-      <score>26</score>
+      <score>25</score>
       <task>?????? System;
 
 void bubbleSort(int []arr)
@@ -57,7 +57,7 @@ void selectionSort(int []arr)
         {
             ?? (arr[j] &lt; pivot)
             {
-                i???
+                i??
 
                 int temp = arr[i];
                 arr[i] = ??????;
@@ -168,6 +168,7 @@ static void quickSort(int []arr, int low, int high)
         }
     }</check>
 </mission>
+
 
 
 

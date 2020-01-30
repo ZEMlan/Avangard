@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mission>
-      <score>25</score>
+      <score>22</score>
       <task>package magic.magic;
 
 ????? java.util.Scanner;
@@ -134,6 +134,7 @@ public class Tictac {
     }
 }</check>
 </mission>
+
 
 
 

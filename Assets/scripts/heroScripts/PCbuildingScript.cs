@@ -56,7 +56,6 @@ public class PCbuildingScript : MonoBehaviour
             Destroy(npcMark);
             ready = false;
             GameObject.Find("Main Camera").GetComponent<Inventory>().ClearInventory();
-            Destroy(npcMark);
             StartCoroutine(ProgressBar(delay));
             StartCoroutine(WorkOnComputer(delay));
             oneDate = false;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mission>
-      <score>19</score>
+      <score>21</score>
       <task>????? System;
 ????? System.Collections.Generic;
 
@@ -98,6 +98,7 @@ const int needle = 1000;
             Console.WriteLine(Searcher.Search(needle, 0, sorted.Length, sorted) + 1);
         }</check>
 </mission>
+
 
 
 

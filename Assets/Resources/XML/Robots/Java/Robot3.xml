@@ -12,14 +12,14 @@ public ????? NeedleSearch {
     static int needle = MAGIC_CONST;
     static ??????? scanner = new Scanner(System.in);
 
-    int find(ArrayList&lt;Integer&gt; haystack, int needle, ??? first, ??? last){
+    int find(ArrayList&lt;Integer&gt; haystack, int needle, ??? first, int last){
         ??(first &gt; last)
             return -1;
         int middle = (int)(first+last)/2;
         if (needle == haystack.get(middle))
             ??????? middle;
         else if (needle &gt; haystack.get(middle))
-            return find?????????, needle, middle+1, last);
+            return find(????????, needle, middle+1, last);
         ????
             return find(haystack, needle, ?????, middle-1);
     }
@@ -80,6 +80,7 @@ public class NeedleSearch {
 
 }</check>
 </mission>
+
 
 
 
